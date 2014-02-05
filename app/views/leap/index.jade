@@ -1,0 +1,26 @@
+﻿extends ../layout
+
+block append js
+  script(src='/components/leapjs/leap.min.js')
+  script(src='/js/leap-test.js')
+
+
+block content
+  h1 Leap Javascript Sample
+  #main
+    h3 Frame data:
+    #frameData
+    div(style='clear:both;')
+        
+    h3 Hand data:
+    #handData
+    div(style='clear:both;')
+        
+    h3 Finger and tool data:
+    #pointableData
+    div(style='clear:both;')
+ 
+    h3 Gesture data:
+    #gestureData
+        
+        

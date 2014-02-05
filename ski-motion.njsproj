@@ -12,9 +12,11 @@
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <NodeExePath>C:\Users\Ryan Preece\AppData\Roaming\npm\grunt.cmd</NodeExePath>
-    <NodeExeArguments />
-    <ScriptArguments />
+    <NodeExePath>C:\Program Files (x86)\nodejs\node.exe</NodeExePath>
+    <NodeExeArguments>
+    </NodeExeArguments>
+    <ScriptArguments>
+    </ScriptArguments>
     <NodejsPort />
     <StartWebBrowser>True</StartWebBrowser>
     <LaunchUrl />
@@ -22,10 +24,144 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Compile Include="public\components\bootstrap\dist\js\bootstrap.js" />
+    <Compile Include="public\components\bootstrap\dist\js\bootstrap.min.js" />
+    <Compile Include="public\components\bootstrap\Gruntfile.js" />
+    <Compile Include="public\components\bootstrap\js\affix.js" />
+    <Compile Include="public\components\bootstrap\js\alert.js" />
+    <Compile Include="public\components\bootstrap\js\button.js" />
+    <Compile Include="public\components\bootstrap\js\carousel.js" />
+    <Compile Include="public\components\bootstrap\js\collapse.js" />
+    <Compile Include="public\components\bootstrap\js\dropdown.js" />
+    <Compile Include="public\components\bootstrap\js\modal.js" />
+    <Compile Include="public\components\bootstrap\js\popover.js" />
+    <Compile Include="public\components\bootstrap\js\scrollspy.js" />
+    <Compile Include="public\components\bootstrap\js\tab.js" />
+    <Compile Include="public\components\bootstrap\js\tooltip.js" />
+    <Compile Include="public\components\bootstrap\js\transition.js" />
+    <Compile Include="public\components\bootstrap\test-infra\shrinkwrap.js" />
+    <Compile Include="public\components\jquery\jquery-migrate.js" />
+    <Compile Include="public\components\jquery\jquery-migrate.min.js" />
+    <Compile Include="public\components\jquery\jquery.js" />
+    <Compile Include="public\components\jquery\jquery.min.js" />
+    <Compile Include="public\components\leapjs\examples\node.js" />
+    <Compile Include="public\components\leapjs\integration_test\protocol_versions.js" />
+    <Compile Include="public\components\leapjs\integration_test\reconnection.js" />
+    <Compile Include="public\components\leapjs\leap.js" />
+    <Compile Include="public\components\leapjs\leap.min.js" />
+    <Compile Include="public\components\leapjs\lib\circular_buffer.js" />
+    <Compile Include="public\components\leapjs\lib\connection\base.js" />
+    <Compile Include="public\components\leapjs\lib\connection\browser.js" />
+    <Compile Include="public\components\leapjs\lib\connection\node.js" />
+    <Compile Include="public\components\leapjs\lib\controller.js" />
+    <Compile Include="public\components\leapjs\lib\frame.js" />
+    <Compile Include="public\components\leapjs\lib\gesture.js" />
+    <Compile Include="public\components\leapjs\lib\hand.js" />
+    <Compile Include="public\components\leapjs\lib\index.js" />
+    <Compile Include="public\components\leapjs\lib\interaction_box.js" />
+    <Compile Include="public\components\leapjs\lib\pipeline.js" />
+    <Compile Include="public\components\leapjs\lib\pointable.js" />
+    <Compile Include="public\components\leapjs\lib\protocol.js" />
+    <Compile Include="public\components\leapjs\lib\ui.js" />
+    <Compile Include="public\components\leapjs\lib\ui\cursor.js" />
+    <Compile Include="public\components\leapjs\lib\ui\region.js" />
+    <Compile Include="public\components\leapjs\stress\punisher.js" />
+    <Compile Include="public\components\leapjs\template\entry.js" />
+    <Compile Include="public\js\leap-test.js" />
+    <Compile Include="public\js\script.js" />
+    <Content Include="app\views\leap\index.jade" />
     <Content Include="bower.json" />
     <Content Include="package.json" />
+    <Content Include="public\components\bootstrap\.bower.json" />
+    <Content Include="public\components\bootstrap\bower.json" />
+    <Content Include="public\components\bootstrap\browserstack.json" />
+    <Content Include="public\components\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="public\components\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="public\components\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="public\components\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="public\components\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="public\components\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="public\components\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="public\components\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="public\components\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="public\components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="public\components\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="public\components\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="public\components\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="public\components\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="public\components\bootstrap\less\alerts.less" />
+    <Content Include="public\components\bootstrap\less\badges.less" />
+    <Content Include="public\components\bootstrap\less\bootstrap.less" />
+    <Content Include="public\components\bootstrap\less\breadcrumbs.less" />
+    <Content Include="public\components\bootstrap\less\button-groups.less" />
+    <Content Include="public\components\bootstrap\less\buttons.less" />
+    <Content Include="public\components\bootstrap\less\carousel.less" />
+    <Content Include="public\components\bootstrap\less\close.less" />
+    <Content Include="public\components\bootstrap\less\code.less" />
+    <Content Include="public\components\bootstrap\less\component-animations.less" />
+    <Content Include="public\components\bootstrap\less\dropdowns.less" />
+    <Content Include="public\components\bootstrap\less\forms.less" />
+    <Content Include="public\components\bootstrap\less\glyphicons.less" />
+    <Content Include="public\components\bootstrap\less\grid.less" />
+    <Content Include="public\components\bootstrap\less\input-groups.less" />
+    <Content Include="public\components\bootstrap\less\jumbotron.less" />
+    <Content Include="public\components\bootstrap\less\labels.less" />
+    <Content Include="public\components\bootstrap\less\list-group.less" />
+    <Content Include="public\components\bootstrap\less\media.less" />
+    <Content Include="public\components\bootstrap\less\mixins.less" />
+    <Content Include="public\components\bootstrap\less\modals.less" />
+    <Content Include="public\components\bootstrap\less\navbar.less" />
+    <Content Include="public\components\bootstrap\less\navs.less" />
+    <Content Include="public\components\bootstrap\less\normalize.less" />
+    <Content Include="public\components\bootstrap\less\pager.less" />
+    <Content Include="public\components\bootstrap\less\pagination.less" />
+    <Content Include="public\components\bootstrap\less\panels.less" />
+    <Content Include="public\components\bootstrap\less\popovers.less" />
+    <Content Include="public\components\bootstrap\less\print.less" />
+    <Content Include="public\components\bootstrap\less\progress-bars.less" />
+    <Content Include="public\components\bootstrap\less\responsive-utilities.less" />
+    <Content Include="public\components\bootstrap\less\scaffolding.less" />
+    <Content Include="public\components\bootstrap\less\tables.less" />
+    <Content Include="public\components\bootstrap\less\theme.less" />
+    <Content Include="public\components\bootstrap\less\thumbnails.less" />
+    <Content Include="public\components\bootstrap\less\tooltip.less" />
+    <Content Include="public\components\bootstrap\less\type.less" />
+    <Content Include="public\components\bootstrap\less\utilities.less" />
+    <Content Include="public\components\bootstrap\less\variables.less" />
+    <Content Include="public\components\bootstrap\less\wells.less" />
+    <Content Include="public\components\bootstrap\LICENSE" />
+    <Content Include="public\components\bootstrap\package.json" />
+    <Content Include="public\components\bootstrap\README.md" />
+    <Content Include="public\components\bootstrap\test-infra\npm-shrinkwrap.canonical.json" />
+    <Content Include="public\components\bootstrap\test-infra\README.md" />
+    <Content Include="public\components\bootstrap\test-infra\requirements.txt" />
+    <Content Include="public\components\bootstrap\test-infra\s3_cache.py" />
+    <Content Include="public\components\bootstrap\test-infra\sauce_browsers.yml" />
+    <Content Include="public\components\bootstrap\test-infra\uncached-npm-install.sh" />
+    <Content Include="public\components\jquery\.bower.json" />
+    <Content Include="public\components\jquery\.gitignore" />
+    <Content Include="public\components\jquery\bower.json" />
+    <Content Include="public\components\jquery\component.json" />
+    <Content Include="public\components\jquery\composer.json" />
+    <Content Include="public\components\jquery\jquery.min.map" />
+    <Content Include="public\components\jquery\package.json" />
+    <Content Include="public\components\jquery\README.md" />
+    <Content Include="public\components\leapjs\.bower.json" />
+    <Content Include="public\components\leapjs\bower.json" />
+    <Content Include="public\components\leapjs\examples\dumper.html" />
+    <Content Include="public\components\leapjs\examples\gestures.html" />
+    <Content Include="public\components\leapjs\examples\roll-pitch-yaw.html" />
+    <Content Include="public\components\leapjs\examples\visualizer.html" />
+    <Content Include="public\components\leapjs\Leap_JSON.rst" />
+    <Content Include="public\components\leapjs\LICENSE.txt" />
+    <Content Include="public\components\leapjs\Makefile" />
+    <Content Include="public\components\leapjs\package.json" />
+    <Content Include="public\components\leapjs\PROTOCOL.md" />
+    <Content Include="public\components\leapjs\README.md" />
+    <Content Include="public\css\style.css" />
     <Content Include="README.md" />
     <Compile Include="app.js" />
+    <Compile Include="app\controllers\leap.js" />
     <Compile Include="Gruntfile.js" />
     <Compile Include="config\config.js" />
     <Compile Include="config\express.js" />
@@ -42,7 +178,30 @@
     <Folder Include="app\models" />
     <Folder Include="app\views" />
     <Folder Include="app\views\home" />
+    <Folder Include="app\views\leap\" />
     <Folder Include="config" />
+    <Folder Include="public\" />
+    <Folder Include="public\components\" />
+    <Folder Include="public\components\bootstrap\" />
+    <Folder Include="public\components\bootstrap\dist\" />
+    <Folder Include="public\components\bootstrap\dist\css\" />
+    <Folder Include="public\components\bootstrap\dist\fonts\" />
+    <Folder Include="public\components\bootstrap\dist\js\" />
+    <Folder Include="public\components\bootstrap\fonts\" />
+    <Folder Include="public\components\bootstrap\js\" />
+    <Folder Include="public\components\bootstrap\less\" />
+    <Folder Include="public\components\bootstrap\test-infra\" />
+    <Folder Include="public\components\jquery\" />
+    <Folder Include="public\components\leapjs\" />
+    <Folder Include="public\components\leapjs\examples\" />
+    <Folder Include="public\components\leapjs\integration_test\" />
+    <Folder Include="public\components\leapjs\lib\" />
+    <Folder Include="public\components\leapjs\lib\connection\" />
+    <Folder Include="public\components\leapjs\lib\ui\" />
+    <Folder Include="public\components\leapjs\stress\" />
+    <Folder Include="public\components\leapjs\template\" />
+    <Folder Include="public\css\" />
+    <Folder Include="public\js\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
