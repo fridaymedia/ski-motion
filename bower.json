@@ -18,6 +18,8 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "bootstrap": "~3.1.0"
+    "bootstrap": "~3.1.0",
+    "jquery": "~2.1.0",
+    "leapjs": "0.3.0"
   }
 }
