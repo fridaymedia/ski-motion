@@ -8,7 +8,10 @@
   "dependencies": {
     "express": "~3.3.4",
     "jade": "~0.34.0",
-    "mongoose": "~3.6.14"
+    "mongoose": "~3.6.14",
+    "rtc": "~0.14.0",
+    "rtc-media": "~1.5.2",
+    "rtc-signaller": "~0.18.2"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
