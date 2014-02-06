@@ -282,8 +282,12 @@ var setup;
     // Handles ball movement
     function ballPaddleMovement()
     {
+        if (steering_value && steering_value != 0)
+        {
+            ballDirY = (steering_value) * (ballSpeed * 0.5);
+        }
         // move left
-        if (Key.isDown(Key.A))       
+        else if (Key.isDown(Key.A))       
         {
            // we move
            if (ball.position.y < fieldHeight * 0.45)

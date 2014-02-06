@@ -3,6 +3,7 @@ var FAR_LEFT_ROLL = 1;
 var FAR_RIGHT_ROLL = -1;
 var CENTRE_ROLL = 0;
 var MIN_HAND_VISIBLE_TIME = 0.15;
+window.steering_value = null;
 
 $(function () {
    // Setup Leap loop with frame callback function
@@ -114,3 +115,7 @@ function vectorToString(vector, digits) {
              + vector[1].toFixed(digits) + ", "
              + vector[2].toFixed(digits) + ")";
 }
+
+$(document).on('steeringUpdated', function (event, value) {
+    steering_value = value;
+});
