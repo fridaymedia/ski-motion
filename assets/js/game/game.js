@@ -5,7 +5,7 @@ var setup;
     var renderer, scene, camera, pointLight, spotLight;
 
     // field variables
-    var fieldWidth = 400, fieldHeight = 200;
+    var fieldWidth = 800, fieldHeight = 200;
 
     // ball variables
     var ball;
@@ -89,12 +89,6 @@ var setup;
               {
                 color: 0x111111
               });
-       // create the pillar's material
-       var pillarMaterial =
-         new THREE.MeshLambertMaterial(
-              {
-                color: 0x534d0d
-              });
        // create the ground's material
        var groundMaterial =
          new THREE.MeshLambertMaterial(
@@ -160,53 +154,6 @@ var setup;
        ball.position.z = radius;
        ball.receiveShadow = true;
        ball.castShadow = true;
-
-       // we iterate 10x (5x each side) to create pillars to show off shadows
-       // this is for the pillars on the left
-       for (var i = 0; i < 5; i++)
-       {
-         var backdrop = new THREE.Mesh(
-
-              new THREE.CubeGeometry( 
-                30, 
-                30, 
-                300, 
-                1, 
-                1,
-                1 ),
-
-              pillarMaterial);
-
-         backdrop.position.x = -50 + i * 100;
-         backdrop.position.y = 230;
-         backdrop.position.z = -30;      
-         backdrop.castShadow = true;
-         backdrop.receiveShadow = true;       
-         scene.add(backdrop);    
-       }
-       // we iterate 10x (5x each side) to create pillars to show off shadows
-       // this is for the pillars on the right
-       for (var i = 0; i < 5; i++)
-       {
-         var backdrop = new THREE.Mesh(
-
-              new THREE.CubeGeometry( 
-                30, 
-                30, 
-                300, 
-                1, 
-                1,
-                1 ),
-
-              pillarMaterial);
-
-         backdrop.position.x = -50 + i * 100;
-         backdrop.position.y = -230;
-         backdrop.position.z = -30;
-         backdrop.castShadow = true;
-         backdrop.receiveShadow = true;      
-         scene.add(backdrop);    
-       }
 
        // finally we finish by adding a ground plane
        // to show off pretty shadows
