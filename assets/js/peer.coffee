@@ -18,7 +18,10 @@ challengeListener = (id, type, data, targeting) ->
   easyrtc.sendData id, 'accepted', me, ackHandler
   console.log('challenge from ' + data.userName + ' accepted!')
 
-  ski.initialiseGame(me, data);
+  ski.initialiseGame(me, data)
+  alert('Challenge accepted from ' + data.userName)
+  window.location = '/game'
+
 
 acceptedListener = (id, type, data, targeting) ->
   # Add game start logic here
@@ -28,6 +31,8 @@ acceptedListener = (id, type, data, targeting) ->
   ski.initialiseGame(me, data);
 
   easyrtc.sendData id, 'gamestate', me, ackHandler
+  alert('Challenge made to ' + data.userName)
+  window.location = '/game'
 
 sendGameState = () ->
 

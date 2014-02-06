@@ -5,7 +5,7 @@ var setup;
     var renderer, scene, camera, pointLight, spotLight;
 
     // field variables
-    var fieldWidth = 800, fieldHeight = 200;
+    var fieldWidth = 1400, fieldHeight = 400;
 
     // ball variables
     var ball;
@@ -14,7 +14,7 @@ var setup;
     // game-related variables
     var score1 = 0;
     // you can change this to any positive whole number
-    var maxScore = 7;
+    var maxScore = 1;
 
     // set opponent reflexes (0 - easiest, 1 - hardest)
     var difficulty = 0.2;
@@ -37,7 +37,7 @@ var setup;
     function createScene()
     {
        // set the scene size
-       var WIDTH = 640, HEIGHT = 360;
+       var WIDTH = 940, HEIGHT = 480;
 
        // set some camera attributes
        var VIEW_ANGLE = 50,

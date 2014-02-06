@@ -1,12 +1,25 @@
-extends ../layout
+doctype 5
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width')
+    title= title
+    block css
+      != css("application")
+    block js
+      script(src='http://localhost:35729/livereload.js')
+      != js("application")
+      != js("game")
 
-block content
-  #gameCanvas
-  #scoreboard
-    h1#scores 0-0
-    h1#title 3D PONG
-    h2#winnerBoard First to 7 wins!
-    h3
-      | A - move left
-      br
-      | D - move right
+  body
+  block content
+    #gameCanvas
+    #scoreboard
+      h1#scores 0-0
+      h1#title 3D PONG
+      h2#winnerBoard First to 7 wins!
+      h3
+        | A - move left
+        br
+        | D - move right
+
