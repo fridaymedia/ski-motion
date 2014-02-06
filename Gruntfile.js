@@ -7,6 +7,7 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
   // load all grunt tasks
   require('load-grunt-tasks')(grunt);
+  grunt.loadNpmTasks('grunt-debug');
 
   var reloadPort = 35729, files;
 
@@ -26,7 +27,9 @@ module.exports = function (grunt) {
         files: [
           'app.js',
           'app/**/*.js',
-          'config/*.js'
+          'assets/**/*.js',
+          'config/*.js',
+          'lib/*.js'
         ],
         tasks: ['develop', 'delayed-livereload']
       },
