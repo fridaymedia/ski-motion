@@ -38,8 +38,9 @@ socket.on "connectedUsers", (data) ->
   otherClientDiv = document.getElementById("otherClients")
   $(otherClientDiv).empty()
   for user in data.users when user.id && user.id != localId
-    button = $('<button>').addClass('btn btn-default')
+    button = $('<a>').addClass('lobby-user')
     button.append(user.username)
+    button.attr('data-id', user.id)
     button.click selectUserHander(user)
 
     $('#otherClients').append(button)

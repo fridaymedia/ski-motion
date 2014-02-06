@@ -1,5 +1,8 @@
 extends ../layout
 
+block append js
+  != js("leap-test")
+
 block content
 
   #lobby.container.hidden
@@ -13,11 +16,6 @@ block content
             br
             strong Connected users:
             #otherClients
-          #videos
-            video#selfVideo.easyrtcMirror(autoplay='autoplay', muted='muted', volume='0')
-            div(style='position: relative; float: left;')
-              video#callerVideo(autoplay='autoplay')
-            // each caller video needs to be in it's own div so it's close button can be positioned correctly
   #user-form.container
     .row
       .col-lg-12

@@ -5,31 +5,16 @@ var CENTRE_ROLL = 0;
 var MIN_HAND_VISIBLE_TIME = 0.15;
 
 $(function () {
-
    // Setup Leap loop with frame callback function
    var controllerOptions = { enableGestures: false };
 
    Leap.loop(controllerOptions, loopCallback);
 
-   $(document).on('steeringUpdated', function (event, value) {
-      var frameOutput = document.getElementById("frameData");
-      frameOutput.innerHTML = "Steering: " + value;
-   });
-
-   var sampleLobbyUsers = [{ name: "Test 1", id: "1234-456-789" }, { name: "Test 2", id: "abcd-efg-hijk" }];
-
-   generateLobby(sampleLobbyUsers);
-
+   //$(document).on('steeringUpdated', function (event, value) {
+      //var frameOutput = document.getElementById("frameData");
+      //frameOutput.innerHTML = "Steering: " + value;
+   //});
 });
-
-function generateLobby(lobbyUsers) {
-   for (var i = 0; i < lobbyUsers.length; i++) {
-      var item = $("<a class='lobby-user' data='" + lobbyUsers[i].id + "'>");
-	  item.html(lobbyUsers[i].name);
-
-      item.appendTo('#lobby');
-   }
-}
 
 var loopCallback = function (frame) {
    d3.selectAll(".cursor").remove();
@@ -99,7 +84,7 @@ var loopCallback = function (frame) {
    }
 
      // Display Gesture object data
-  var gestureOutput = document.getElementById("frameData");
+  //var gestureOutput = document.getElementById("frameData");
   var gestureString = "";
   if (frame.gestures.length > 0) {
 
@@ -129,9 +114,9 @@ var loopCallback = function (frame) {
     }
   }
   else {
-    gestureString += gestureOutput.innerHTML;
+    //gestureString += gestureOutput.innerHTML;
   }
-  gestureOutput.innerHTML = gestureString;
+  //gestureOutput.innerHTML = gestureString;
 };
 
 function updateSteering(steeringVal) {
