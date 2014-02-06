@@ -2,10 +2,10 @@ extends ../layout
 
 block content
 
-  .container.hidden
+  #lobby.container.hidden
     .row
       .col-lg-12
-        h2 The Demo
+        h2 Ski Motion
         // show
         #demoContainer
           #connectControls
@@ -18,7 +18,7 @@ block content
             div(style='position: relative; float: left;')
               video#callerVideo(autoplay='autoplay')
             // each caller video needs to be in it's own div so it's close button can be positioned correctly
-  .container
+  #user-form.container
     .row
       .col-lg-12
         .form-group

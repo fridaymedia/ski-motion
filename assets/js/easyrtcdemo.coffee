@@ -35,10 +35,12 @@ performCall = (otherEasyrtcid) ->
 
 loginSuccess = (easyrtcId) ->
   localId = easyrtcId
-  document.getElementById("iam").innerHTML = "I am " + easyrtc.cleanId(easyrtcId)
+  document.getElementById("iam").innerHTML = "I am " + localUsername
   socket.emit 'setUsername',
     username: localUsername
     id: easyrtc.cleanId(easyrtcId)
+  $('#lobby').removeClass('hidden')
+  $('#user-form').hide()
 
 loginFailure = (errorCode, message) ->
   easyrtc.showError errorCode, message
