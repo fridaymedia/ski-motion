@@ -15,11 +15,9 @@ socket.on "connectedUsers", (data) ->
     button.appendChild label
     otherClientDiv.appendChild button
 
-
 connect = ->
-  connectedToRTC = true
-  #easyrtc.setRoomOccupantListener convertListToButtons
   easyrtc.connect "ski-motion", loginSuccess, loginFailure
+  connectedToRTC = true
 
 clearConnectList = ->
   otherClientDiv = document.getElementById("otherClients")
