@@ -4,4 +4,7 @@ module.exports = function(app){
 	var home = require('../app/controllers/home');
 	app.get('/', home.index);
 
+  var game = require('../app/controllers/game');
+  app.get('/game', game.index);
+
 };
