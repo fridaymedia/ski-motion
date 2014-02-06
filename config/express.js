@@ -4,6 +4,7 @@ module.exports = function(app, config) {
   app.configure(function () {
     app.use(express.compress());
     app.use(express.static(config.root + '/public'));
+    app.use(require('connect-assets')());
     app.set('port', config.port);
     app.set('views', config.root + '/app/views');
     app.set('view engine', 'jade');

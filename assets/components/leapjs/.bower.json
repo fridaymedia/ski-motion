@@ -22,7 +22,6 @@
     "commit": "9aab56916f4db4b18c45c8927f279a9e1c144b03"
   },
   "_source": "git://github.com/leapmotion/leapjs.git",
-  "_target": "~0.3.0",
-  "_originalSource": "leapjs",
-  "_direct": true
+  "_target": "0.3.0",
+  "_originalSource": "leapjs"
 }
