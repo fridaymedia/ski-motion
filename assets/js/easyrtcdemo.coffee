@@ -2,18 +2,19 @@ localUsername = null
 localId = null
 connectedToRTC = false
 
+selectUserHander = (user) ->
+  -> console.log "clicked - #{user.username} - #{user.id}"
+
 socket = io.connect(document.location.origin)
 socket.on "connectedUsers", (data) ->
   otherClientDiv = document.getElementById("otherClients")
   $(otherClientDiv).empty()
   for user in data.users when user.id && user.id != localId
-    button = document.createElement("button")
-    button.onclick = ((easyrtcid) ->
-      # Do stuff
-    )(user.id)
-    label = document.createTextNode(user.username)
-    button.appendChild label
-    otherClientDiv.appendChild button
+    button = $('<button>').addClass('btn btn-default')
+    button.append(user.username)
+    button.click selectUserHander(user)
+
+    $('#otherClients').append(button)
 
 connect = ->
   easyrtc.connect "ski-motion", loginSuccess, loginFailure
@@ -25,7 +26,6 @@ clearConnectList = ->
 
 convertListToButtons = (roomName, data, isPrimary) ->
   clearConnectList()
-
 
 loginSuccess = (easyrtcId) ->
   localId = easyrtcId
