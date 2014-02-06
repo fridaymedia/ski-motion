@@ -9,16 +9,12 @@ $(function () {
    var controllerOptions = { enableGestures: false };
 
    Leap.loop(controllerOptions, loopCallback);
-
-   //$(document).on('steeringUpdated', function (event, value) {
-      //var frameOutput = document.getElementById("frameData");
-      //frameOutput.innerHTML = "Steering: " + value;
-   //});
 });
 
 var loopCallback = function (frame) {
    d3.selectAll(".cursor").remove();
    $('.lobby-user').css("background-color", "");
+   $('.lobby-user').removeClass("selected");
 
    if (frame.pointables.length > 0) {
       frame.pointables.forEach(function (pointable, i) {
@@ -37,9 +33,10 @@ var loopCallback = function (frame) {
 
            var element = document.elementFromPoint(pos[0], pos[1]);
            if (element != null && $(element).attr('class') === 'lobby-user')
-            {   
-              //alert($(element).attr("data"));
+            {
+              //console.log("Position Color: " + pos[0] + " - " + pos[1]);   
               $(element).css("background-color", "green");
+              $(element).addClass("selected");
             }
 
          // visual cursor
@@ -83,40 +80,26 @@ var loopCallback = function (frame) {
       updateSteering(CENTRE_ROLL);
    }
 
-     // Display Gesture object data
-  //var gestureOutput = document.getElementById("frameData");
-  var gestureString = "";
   if (frame.gestures.length > 0) {
 
     for (var i = 0; i < frame.gestures.length; i++) {
       var gesture = frame.gestures[i];
-      gestureString += "gesture id: " + gesture.id + ", "
-                    + "type: " + gesture.type + ", "
-                    + "state: " + gesture.state + ", "
-                    + "hand ids: " + gesture.handIds.join(", ") + ", "
-                    + "pointable ids: " + gesture.pointableIds.join(", ") + ", "
-                    + "duration: " + gesture.duration + " &micro;s, ";
 
       switch (gesture.type) {
-        case "circle":
-        case "swipe":
         case "screenTap":
-          gestureString += "No thanks!";
-          break;
-        case "keyTap":
-          gestureString += "position: " + vectorToString(gesture.position) + " mm, "
-                        + "direction: " + vectorToString(gesture.direction, 2);
+          
+          var obj = $(".selected");
+          obj.click();
+          //console.log(obj);
           break;
         default:
-          gestureString += "unkown gesture type";
+          break;
       }
-      gestureString += "<br />";
     }
   }
   else {
     //gestureString += gestureOutput.innerHTML;
   }
-  //gestureOutput.innerHTML = gestureString;
 };
 
 function updateSteering(steeringVal) {
