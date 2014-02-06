@@ -14,11 +14,11 @@ class ski.Player
   constructor: (@id, @userName) ->
     @facing = @position = @score = null
 
-  updateGameData = (gameData) ->
+  updateGameData: (gameData) ->
     { @facing, @position, @score } = gameData
 
 ski.initialiseGame = (me, opponent) ->
   me.score = 0;
   opponent.score = 0;
   # set positions and facing here too!
-  @currentGame = new Game(me, opponent)
+  @currentGame = new ski.Game(me, opponent)

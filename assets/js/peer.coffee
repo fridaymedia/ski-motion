@@ -2,29 +2,40 @@ localUsername = null
 localId = null
 connectedToRTC = false
 
-
 ackHandler = (msgType, msgData) ->
   console.log arguments
 
 selectUserHander = (user) ->
   ->
     console.log "clicked - #{user.username} - #{user.id}"
-    # The packet for this call can just be empty; we only need metadata
-    easyrtc.sendData user.id, 'challenge', { }, ackHandler
+    me = new ski.Player(localId, localUsername)
+    easyrtc.sendData user.id, 'challenge', me, ackHandler
 
 challengeListener = (id, type, data, targeting) ->
   # For now, all challenges are accepted!
-  easyrtc.sendData id, 'accepted', { }, ackHandler
-  # Add game start logic here
-  console.log('challenge')
+  me = new ski.Player(localId, localUsername)
+
+  easyrtc.sendData id, 'accepted', me, ackHandler
+  console.log('challenge from ' + data.userName + ' accepted!')
+
+  ski.initialiseGame(me, data);
 
 acceptedListener = (id, type, data, targeting) ->
   # Add game start logic here
-  console.log('accepted')
+  console.log('challenge made to ' + data.userName + ' accepted!')
+  me = new ski.Player(localId, localUsername)
+
+  ski.initialiseGame(me, data);
+
+  easyrtc.sendData id, 'gamestate', me, ackHandler
+
+sendGameState = () ->
+
+  easyrtc.sendData ski.currentGame.opponent.id, 'gamestate', ski.currentGame.me, ackHandler
 
 gameStateListener = (id, type, data, targeting) ->
-  # Do game logic here
-  console.log('gamestate')
+  ski.currentGame.opponent = data
+  setTimeout(sendGameState, 50)
 
 easyrtc.setPeerListener(challengeListener, 'challenge')
 easyrtc.setPeerListener(acceptedListener, 'accepted')
