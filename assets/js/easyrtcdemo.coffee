@@ -1,14 +1,25 @@
-localUsername = ''
+localUsername = null
+localId = null
 connectedToRTC = false
 
 socket = io.connect(document.location.origin)
 socket.on "connectedUsers", (data) ->
-  console.table data.users
+  otherClientDiv = document.getElementById("otherClients")
+  $(otherClientDiv).empty()
+  for user in data.users when user.id && user.id != localId
+    button = document.createElement("button")
+    button.onclick = ((easyrtcid) ->
+      # Do stuff
+    )(user.id)
+    label = document.createTextNode(user.username)
+    button.appendChild label
+    otherClientDiv.appendChild button
+
 
 connect = ->
   connectedToRTC = true
-  easyrtc.setRoomOccupantListener convertListToButtons
-  easyrtc.easyApp "easyrtc.audioVideo", "selfVideo", ["callerVideo"], loginSuccess, loginFailure
+  #easyrtc.setRoomOccupantListener convertListToButtons
+  easyrtc.connect "ski-motion", loginSuccess, loginFailure
 
 clearConnectList = ->
   otherClientDiv = document.getElementById("otherClients")
@@ -16,26 +27,11 @@ clearConnectList = ->
 
 convertListToButtons = (roomName, data, isPrimary) ->
   clearConnectList()
-  otherClientDiv = document.getElementById("otherClients")
-  for easyrtcid of data
-    button = document.createElement("button")
-    button.onclick = ((easyrtcid) ->
-      -> performCall easyrtcid
-    )(easyrtcid)
-    label = document.createTextNode(easyrtc.idToName(easyrtcid))
-    button.appendChild label
-    otherClientDiv.appendChild button
 
-performCall = (otherEasyrtcid) ->
-  easyrtc.hangupAll()
-  successCB = ->
-  failureCB = ->
-
-  easyrtc.call otherEasyrtcid, successCB, failureCB
 
 loginSuccess = (easyrtcId) ->
   localId = easyrtcId
-  document.getElementById("iam").innerHTML = "I am " + easyrtc.cleanId(easyrtcId)
+  document.getElementById("iam").innerHTML = "I am " + localUsername
   socket.emit 'setUsername',
     username: localUsername
     id: easyrtc.cleanId(easyrtcId)
