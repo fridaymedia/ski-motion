@@ -1,0 +1,14 @@
+﻿extends ../layout
+
+block append js
+  != js("leap-test")
+
+block content
+  h1 Leap Javascript Sample
+  #main
+    h3 Frame data:
+    #frameData
+    div(style='clear:both;')
+        
+    h3 Tool Test:
+    #lobby.container
