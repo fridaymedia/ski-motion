@@ -2,8 +2,14 @@ localUsername = null
 localId = null
 connectedToRTC = false
 
+
 selectUserHander = (user) ->
-  -> console.log "clicked - #{user.username} - #{user.id}"
+  ->
+    console.log "clicked - #{user.username} - #{user.id}"
+    easyrtc.sendData user.id, 'data', { hi: "from #{localUsername}" }, (msgType, msgData) -> console.log arguments
+
+easyrtc.enableDataChannels true
+easyrtc.enableDebug true
 
 socket = io.connect(document.location.origin)
 socket.on "connectedUsers", (data) ->
