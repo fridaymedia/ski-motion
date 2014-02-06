@@ -1,4 +1,28 @@
 extends ../layout
 
 block content
-  h1 Welcome to ski motion!!!
+
+  .container
+    #main
+      .row
+        .col-lg-12
+          h2 The Demo
+          // show
+          #demoContainer
+            #connectControls
+              #iam Not yet connected...
+              br
+              strong Connected users:
+              #otherClients
+            #videos
+              video#selfVideo.easyrtcMirror(autoplay='autoplay', muted='muted', volume='0')
+              div(style='position: relative; float: left;')
+                video#callerVideo(autoplay='autoplay')
+              // each caller video needs to be in it's own div so it's close button can be positioned correctly
+  .container
+    .row
+      .col-lg-12
+        .form-group
+          label Choose a name
+          input#name
+          button#connect Go!
