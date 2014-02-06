@@ -14,7 +14,7 @@ selectUserHander = (user) ->
 
 challengeListener = (id, type, data, targeting) ->
   # For now, all challenges are accepted!
-  easyrtc.sendData user.id, 'accepted', { }, ackHandler
+  easyrtc.sendData id, 'accepted', { }, ackHandler
   # Add game start logic here
   console.log('challenge')
 
