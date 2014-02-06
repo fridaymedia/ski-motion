@@ -3,10 +3,32 @@ localId = null
 connectedToRTC = false
 
 
+ackHandler = (msgType, msgData) ->
+  console.log arguments
+
 selectUserHander = (user) ->
   ->
     console.log "clicked - #{user.username} - #{user.id}"
-    easyrtc.sendData user.id, 'data', { hi: "from #{localUsername}" }, (msgType, msgData) -> console.log arguments
+    # The packet for this call can just be empty; we only need metadata
+    easyrtc.sendData user.id, 'challenge', { }, ackHandler
+
+challengeListener = (id, type, data, targeting) ->
+  # For now, all challenges are accepted!
+  easyrtc.sendData user.id, 'accepted', { }, ackHandler
+  # Add game start logic here
+  console.log('challenge')
+
+acceptedListener = (id, type, data, targeting) ->
+  # Add game start logic here
+  console.log('accepted')
+
+gameStateListener = (id, type, data, targeting) ->
+  # Do game logic here
+  console.log('gamestate')
+
+easyrtc.setPeerListener(challengeListener, 'challenge')
+easyrtc.setPeerListener(acceptedListener, 'accepted')
+easyrtc.setPeerListener(gameStateListener)
 
 easyrtc.enableDataChannels true
 easyrtc.enableDebug true
