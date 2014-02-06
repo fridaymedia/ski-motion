@@ -1,4 +1,12 @@
+localUsername = ''
+connectedToRTC = false
+
+socket = io.connect(document.location.origin)
+socket.on "connectedUsers", (data) ->
+  console.table data.users
+
 connect = ->
+  connectedToRTC = true
   easyrtc.setRoomOccupantListener convertListToButtons
   easyrtc.easyApp "easyrtc.audioVideo", "selfVideo", ["callerVideo"], loginSuccess, loginFailure
 
@@ -26,13 +34,18 @@ performCall = (otherEasyrtcid) ->
   easyrtc.call otherEasyrtcid, successCB, failureCB
 
 loginSuccess = (easyrtcId) ->
-  selfEasyrtcid = easyrtcId
+  localId = easyrtcId
   document.getElementById("iam").innerHTML = "I am " + easyrtc.cleanId(easyrtcId)
+  socket.emit 'setUsername',
+    username: localUsername
+    id: easyrtc.cleanId(easyrtcId)
 
 loginFailure = (errorCode, message) ->
   easyrtc.showError errorCode, message
 
-selfEasyrtcid = ""
+connectClickHander = (event) ->
+  localUsername = $('#name').val()
+  connect() unless connectedToRTC
 
 $ ->
-  connect()
+  $('#connect').click connectClickHander
